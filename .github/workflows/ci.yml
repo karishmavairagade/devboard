@@ -35,7 +35,7 @@ jobs:
             - name: Docker Setup [Login]
               uses: docker/login-action@v4
               with:
-                username: ${{ vars.DOCKERHUB_USERNAME }}
+                username: ${{ secrets.DOCKERHUB_USERNAME }}
                 password: ${{ secrets.DOCKERHUB_TOKEN }}
 
             - name: Docker Build and Push
@@ -43,7 +43,7 @@ jobs:
               with:
                 context: ./frontend
                 push: true
-                tags: ${{ vars.DOCKERHUB_USERNAME }}/devboard-frontend:latest
+                tags: ${{ secrets.DOCKERHUB_USERNAME }}/devboard-frontend:latest
                 
     backend:
         # Github runner
