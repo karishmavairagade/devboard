@@ -1,5 +1,4 @@
 # We are creating this to create, build and lint code
-
 name: CI
 
 on:
@@ -78,7 +77,7 @@ jobs:
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/devboard-backend:latest
 
- deploy:
-    needs: [frontend,backend]
-    uses: ./.github/workflows/cd.yml
-    secrets: inherit 
+  deploy:
+     needs: [frontend,backend]
+     uses: ./.github/workflows/cd.yml
+     secrets: inherit 
