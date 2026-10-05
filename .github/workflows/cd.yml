@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-     runs-on: ubuntu-latest
+     runs-on: self-hosted
      steps:
         - name: Code Checkout
           uses: actions/checkout@v7
@@ -22,6 +22,6 @@ jobs:
              password: ${{ secrets.DOCKERHUB_TOKEN }}
 
         - name: Deploy the containers with Docker Compose
-          run: 
+          run: | 
             docker compose pull
             docker compose up -d
