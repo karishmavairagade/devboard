@@ -3,7 +3,8 @@ name: CI
 
 on:
   push:
-    branches: [advanced]
+    branches: 
+         - advanced
 
 jobs:
   frontend:
@@ -35,7 +36,6 @@ jobs:
             context: ./frontend
             push: true
             tags: ${{ vars.DOCKERHUB_USERNAME }}/devboard-frontend:latest
-
 
 
   backend:
